@@ -64,7 +64,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            height: 65vh;
+            height: 60vh;
             padding: 0 20px;
         }
 
@@ -102,7 +102,7 @@
             transform: translateY(-2px);
         }
 
-        /* Sections Styling */
+        /* Section Titles */
         .section-title {
             text-align: center;
             padding-top: 60px;
@@ -146,7 +146,7 @@
             line-height: 1.5;
         }
 
-        /* Chart Slider & Video Section */
+        /* Slider & Video Performance Section */
         .gallery-section {
             background-color: #151a24;
             padding: 60px 8%;
@@ -171,7 +171,6 @@
             position: relative;
         }
 
-        /* Image Slider Wrapper */
         .slider-wrapper {
             position: relative;
             width: 100%;
@@ -190,7 +189,6 @@
             display: block;
         }
 
-        /* Slider Navigation Buttons */
         .prev, .next {
             cursor: pointer;
             position: absolute;
@@ -202,16 +200,14 @@
             font-weight: bold;
             font-size: 18px;
             transition: 0.4s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
             background-color: rgba(0, 0, 0, 0.6);
+            user-select: none;
         }
 
         .prev { left: 10px; border-radius: 3px; }
         .next { right: 10px; border-radius: 3px; }
         .prev:hover, .next:hover { background-color: #00cfc8; color: #0b0e14; }
 
-        /* Video Container */
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -233,50 +229,191 @@
             margin-top: 12px;
             color: #b7bdc6;
             font-size: 14px;
-            line-height: 1.4;
         }
 
-        /* Contact Section */
-        .contact-section {
+        /* 3 Days Free Trial Bar (New Box) */
+        .trial-bar {
+            background-color: #ffffff;
+            color: #0b0e14;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px auto;
+            width: 84%;
+            border-radius: 50px;
+        }
+
+        .trial-text {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .trial-btn {
+            background-color: #0052cc;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .trial-btn:hover {
+            background-color: #003d99;
+        }
+
+        /* Pricing Section (New Layout) */
+        .pricing-section {
             padding: 60px 8%;
-            background-color: #0b0e14;
             text-align: center;
+            background-color: #0b0e14;
         }
 
-        .contact-container {
+        .pricing-container {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
+            gap: 25px;
+            margin-top: 40px;
             flex-wrap: wrap;
         }
 
-        .contact-card {
+        .price-card {
             background-color: #151a24;
-            padding: 25px;
-            border-radius: 8px;
-            width: 280px;
-            border: 1px solid #1f2633;
+            border-radius: 12px;
+            width: 310px;
+            border: 2px solid #1f2633;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
             text-align: left;
+            transition: 0.3s;
         }
 
-        .contact-card h4 {
-            color: #00cfc8;
-            margin-bottom: 15px;
-            font-size: 18px;
+        .price-card.featured {
+            border-color: #0052cc;
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #ffcc00;
+            color: #0b0e14;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .price-header {
+            padding: 25px;
             border-bottom: 1px solid #1f2633;
-            padding-bottom: 5px;
         }
 
-        .contact-card p {
-            color: #b7bdc6;
-            font-size: 15px;
-            line-height: 1.8;
+        .price-header h4 {
+            font-size: 22px;
+            color: #ffffff;
             margin-bottom: 8px;
         }
 
-        .contact-card strong {
+        .price-amount {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00cfc8;
+        }
+
+        .price-amount span {
+            font-size: 14px;
+            color: #b7bdc6;
+            font-weight: normal;
+        }
+
+        .price-features {
+            padding: 25px;
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .price-features li {
+            font-size: 14px;
+            color: #b7bdc6;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            color: #00cfc8;
+            font-weight: bold;
+        }
+
+        .price-features li.disabled {
+            color: #5e6673;
+            text-decoration: line-through;
+        }
+
+        .price-features li.disabled::before {
+            content: "✕";
+            color: #ff4444;
+        }
+
+        .order-btn {
+            display: block;
+            text-align: center;
+            background-color: #0052cc;
             color: #ffffff;
+            padding: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 25px 25px 25px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background-color: #003d99;
+        }
+
+        /* Still Have Questions Contact Section (New Layout) */
+        .qa-contact {
+            background-color: #091e42;
+            padding: 60px 8%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .qa-contact h2 {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .qa-contact p {
+            color: #b7bdc6;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .sales-btn {
+            display: inline-block;
+            background-color: #25a244;
+            color: #ffffff;
+            padding: 14px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .sales-btn:hover {
+            background-color: #1e8236;
         }
 
         /* Footer */
@@ -298,13 +435,13 @@
             <li><a href="#">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#performance">Performance</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#pricing">Pricing</a></li>
         </ul>
     </nav>
 
     <section class="hero">
         <h1>Smart Trading Solutions</h1>
-        <p>We guide you to trade profitably in the stock market with custom automated algo trading solutions and highly precise FVG trading indicators.</p>
+        <p>We guide you to trade profitably in the stock market with custom automated algo trading solutions and highly precise trading indicators.</p>
         <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20am%20interested%20in%20your%20Price%20Makers%20Indicator" target="_blank" class="btn">💬 Connect on WhatsApp</a>
     </section>
 
@@ -320,64 +457,78 @@
         </div>
         <div class="card">
             <h3>Price Action Strategies</h3>
-            <p>Profitable trading strategies purely based on Fair Value Gap (FVG), Smart Stoploss (SL), and rigid Risk Management rules.</p>
+            <p>Profitable trading strategies purely based on Smart Stoploss (SL), Support & Resistance, and rigid Risk Management rules.</p>
         </div>
     </section>
 
     <section class="gallery-section" id="performance">
         <h2>Indicator Performance</h2>
         <div class="gallery-container">
-            
             <div class="gallery-box">
                 <div class="slider-wrapper">
-                    <div class="mySlides">
-                        <img src="https://i.ibb.co/3YgYm8m/c2.png" alt="Chart 1">
-                    </div>
-                    <div class="mySlides">
-                        <img src="https://i.ibb.co/bX0v0vM/c1.png" alt="Chart 2">
-                    </div>
-                    <div class="mySlides">
-                        <img src="https://i.ibb.co/vXyZ6Xz/4.png" alt="Chart 3">
-                    </div>
-                    <div class="mySlides">
-                        <img src="https://i.ibb.co/r2R8X7z/3.png" alt="Chart 4">
-                    </div>
-                    
+                    <div class="mySlides"><img src="https://i.ibb.co/3YgYm8m/c2.png" alt="Chart 1"></div>
+                    <div class="mySlides"><img src="https://i.ibb.co/bX0v0vM/c1.png" alt="Chart 2"></div>
+                    <div class="mySlides"><img src="https://i.ibb.co/vXyZ6Xz/4.png" alt="Chart 3"></div>
+                    <div class="mySlides"><img src="https://i.ibb.co/r2R8X7z/3.png" alt="Chart 4"></div>
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </div>
-                <p><strong>Indicator Screenshots:</strong> Use the left/right arrows to view all performance charts showcasing accurate entries and smart trailing levels.</p>
+                <p><strong>Indicator Screenshots:</strong> View all performance charts showcasing accurate entries and smart trailing levels.</p>
             </div>
-
             <div class="gallery-box">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <p><strong>Live Execution Video:</strong> Watch the live demonstration of our custom indicator alerting targets and trailing stoplosses.</p>
             </div>
-
         </div>
     </section>
 
-    <section class="contact-section" id="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-container">
-            <div class="contact-card">
-                <h4>Profile</h4>
-                <p><strong>Name:</strong> Prasanth</p>
-                <p><strong>Business:</strong> Price Makers Trading</p>
+    <div class="trial-bar">
+        <div class="trial-text">Choose your plan. Still not sure? We offer 3 days Free Trial.</div>
+        <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20want%20to%20start%20my%203%20days%20free%20trial" target="_blank" class="trial-btn">Start 3 Day Free Trial →</a>
+    </div>
+
+    <section class="pricing-section" id="pricing">
+        <h2>Flexible Pricing Plans</h2>
+        <div class="pricing-container">
+            <div class="price-card">
+                <div class="price-header">
+                    <h4>Basic Plan</h4>
+                    <div class="price-amount">₹3,500<span>/Monthly</span></div>
+                </div>
+                <ul class="price-features">
+                    <li>Custom Indicators Access</li>
+                    <li>Basic Target Alerts</li>
+                    <li>Email & Chat Support</li>
+                    <li class="disabled">Fully Automated Algo</li>
+                    <li class="disabled">Premium Strategy Samples</li>
+                </ul>
+                <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20want%20to%20order%20the%20Basic%20Monthly%20Plan" class="order-btn" target="_blank">Order Now →</a>
             </div>
-            <div class="contact-card">
-                <h4>Contact Details</h4>
-                <p><strong>Mobile:</strong> +91 9123565212</p>
-                <p><strong>Email:</strong> workingsp10@gmail.com</p>
-            </div>
-            <div class="contact-card">
-                <h4>Location & Hours</h4>
-                <p><strong>Places:</strong> Erode & Komarapalayam</p>
-                <p><strong>Timing:</strong> 9 AM to 6 PM</p>
+
+            <div class="price-card featured">
+                <div class="badge">Save 30%</div>
+                <div class="price-header">
+                    <h4>Pro Plan</h4>
+                    <div class="price-amount">₹29,400<span>/Yearly</span></div>
+                </div>
+                <ul class="price-features">
+                    <li>Everything in Basic Plan</li>
+                    <li>Highly Precise Spike SL Logic</li>
+                    <li>Premium Strategy Samples</li>
+                    <li>Fully Automated Algo Setups</li>
+                    <li>Exclusive Priority Support</li>
+                </ul>
+                <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20want%20to%20order%20the%20Pro%20Yearly%20Plan" class="order-btn" target="_blank">Order Now →</a>
             </div>
         </div>
+    </section>
+
+    <section class="qa-contact">
+        <h2>Still have Questions?</h2>
+        <p>If you have any doubts regarding our plans or custom strategy configurations, let's talk.</p>
+        <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20have%20some%20questions%20about%20your%20trading%20services" class="sales-btn" target="_blank">Contact Sales ↗</a>
     </section>
 
     <footer>
@@ -387,19 +538,13 @@
     <script>
         let slideIndex = 1;
         showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
+        function plusSlides(n) { showSlides(slideIndex += n); }
         function showSlides(n) {
             let i;
             let slides = document.getElementsByClassName("mySlides");
             if (n > slides.length) {slideIndex = 1}    
             if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
             slides[slideIndex-1].style.display = "block";  
         }
     </script>
