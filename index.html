@@ -65,22 +65,24 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            height: 50vh;
+            height: 45vh;
             padding: 0 20px;
+            padding-top: 40px;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 56px;
             margin-bottom: 20px;
             background: linear-gradient(to right, #ffffff, #00cfc8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 700;
         }
 
         .hero p {
             font-size: 18px;
             color: #b7bdc6;
-            max-width: 600px;
+            max-width: 650px;
             margin-bottom: 30px;
             line-height: 1.6;
         }
@@ -103,64 +105,84 @@
             transform: translateY(-2px);
         }
 
-        /* HIDE & SHOW ANIMATION NOTE BOX SECTION */
-        .animated-notes-section {
-            padding: 20px 8% 40px 8%;
+        /* QUANTMAN STYLE SEAMLESS SLIDER SECTION */
+        .quantman-slider-section {
+            padding: 10px 8% 60px 8%;
             display: flex;
             justify-content: center;
             background-color: #0b0e14;
         }
 
-        .notes-display-box {
-            background-color: #151a24;
-            border: 2px solid #1f2633;
-            border-radius: 16px;
+        .quantman-slider-container {
             width: 100%;
-            max-width: 700px;
-            height: 200px;
+            max-width: 750px;
+            height: 140px;
             position: relative;
             overflow: hidden;
+        }
+
+        /* Individual slide holds text and icon together */
+        .quantman-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-        }
-
-        .note-slide {
-            position: absolute;
-            width: 100%;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            gap: 25px;
+            gap: 20px;
+            
+            /* Initial State: Hidden and shifted down slightly */
             opacity: 0;
+            transform: translateY(20px);
             visibility: hidden;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                        visibility 0.6s;
         }
 
-        .note-slide.active {
+        /* Active State: Fades in and slides up smoothly */
+        .quantman-slide.active {
             opacity: 1;
+            transform: translateY(0);
             visibility: visible;
         }
 
-        .note-image {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 2px solid #00cfc8;
+        /* Exiting State: Fades out and moves up smoothly */
+        .quantman-slide.exit {
+            opacity: 0;
+            transform: translateY(-20px);
+            visibility: hidden;
         }
 
-        .note-info h3 {
+        /* Text Configuration matching Quantman presentation */
+        .quantman-slide h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            text-align: right;
+        }
+
+        .quantman-slide h2 span {
             color: #00cfc8;
-            font-size: 22px;
-            margin-bottom: 6px;
         }
 
-        .note-info p {
-            color: #b7bdc6;
-            font-size: 15px;
-            line-height: 1.4;
+        /* Dynamic Circular Icon Wrapper styling */
+        .quantman-icon-wrapper {
+            width: 75px;
+            height: 75px;
+            background: rgba(0, 207, 200, 0.1);
+            border: 2px solid rgba(0, 207, 200, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .quantman-icon-wrapper i {
+            font-size: 32px;
+            color: #00cfc8;
         }
 
         /* Section Titles */
@@ -536,27 +558,24 @@
         <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20am%20interested%20in%20your%20Price%20Makers%20Indicator" target="_blank" class="btn">💬 Connect on WhatsApp</a>
     </section>
 
-    <section class="animated-notes-section">
-        <div class="notes-display-box">
-            <div class="note-slide active">
-                <img src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=150" class="note-image" alt="No Emotion">
-                <div class="note-info">
-                    <h3>No More Emotion</h3>
-                    <p>Execute your trading plan flawlessly without the interference of human fear, greed, or psychological biases.</p>
+    <section class="quantman-slider-section">
+        <div class="quantman-slider-container">
+            <div class="quantman-slide active">
+                <h2>No More <span>Emotion</span></h2>
+                <div class="quantman-icon-wrapper">
+                    <i class="fa-solid fa-brain"></i>
                 </div>
             </div>
-            <div class="note-slide">
-                <img src="https://images.unsplash.com/photo-1534972195531-d756b9bda9f2?w=150" class="note-image" alt="Risk Management">
-                <div class="note-info">
-                    <h3>Proper Risk Management Setup</h3>
-                    <p>Pre-defined smart stoplosses, precise position sizing rules, and automated algorithmic safe exits safeguard your capital.</p>
+            <div class="quantman-slide">
+                <h2>Proper <span>Risk Management Setup</span></h2>
+                <div class="quantman-icon-wrapper">
+                    <i class="fa-solid fa-shield-halved"></i>
                 </div>
             </div>
-            <div class="note-slide">
-                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=150" class="note-image" alt="Over Trading">
-                <div class="note-info">
-                    <h3>End Card for Over Trading</h3>
-                    <p>Automated circuit breakers that lock and pause your strategy instantly once daily trading limits or targets are reached.</p>
+            <div class="quantman-slide">
+                <h2>End Card for <span>Over Trading</span></h2>
+                <div class="quantman-icon-wrapper">
+                    <i class="fa-solid fa-ban"></i>
                 </div>
             </div>
         </div>
@@ -658,7 +677,7 @@
     </footer>
 
     <script>
-        // Performance Slider
+        // Performance Slider Controller
         let slideIndex = 1;
         showSlides(slideIndex);
         function plusSlides(n) { showSlides(slideIndex += n); }
@@ -671,15 +690,31 @@
             slides[slideIndex-1].style.display = "block";  
         }
 
-        // Automatic Hide and Show Note Slider Script
-        let noteIndex = 0;
-        const noteSlides = document.querySelectorAll(".note-slide");
-        function rotateNotes() {
-            noteSlides[noteIndex].classList.remove("active");
-            noteIndex = (noteIndex + 1) % noteSlides.length;
-            noteSlides[noteIndex].classList.add("active");
+        // Quantman Style Infinite Dynamic Text Sync Slider Controller 
+        let currentQuantmanIdx = 0;
+        const quantmanSlides = document.querySelectorAll(".quantman-slide");
+        const totalQuantmanSlides = quantmanSlides.length;
+
+        function playQuantmanTransition() {
+            let activeSlide = quantmanSlides[currentQuantmanIdx];
+            
+            // 1. Current active element transitions to exit layout (slides up + fades out)
+            activeSlide.classList.remove("active");
+            activeSlide.classList.add("exit");
+            
+            // 2. Compute next item index
+            currentQuantmanIdx = (currentQuantmanIdx + 1) % totalQuantmanSlides;
+            let nextSlide = quantmanSlides[currentQuantmanIdx];
+            
+            // 3. Reset target upcoming element configuration state from previous memory cycles
+            nextSlide.classList.remove("exit");
+            
+            // 4. Trigger clean visual arrival state
+            nextSlide.classList.add("active");
         }
-        setInterval(rotateNotes, 4000); // Transitions every 4 seconds
+
+        // Run the seamless system loop every 3.5 seconds
+        setInterval(playQuantmanTransition, 3500);
     </script>
 
 </body>
