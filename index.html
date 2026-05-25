@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price Makers Trading</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* CSS Styles */
         * {
@@ -64,7 +65,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            height: 55vh;
+            height: 50vh;
             padding: 0 20px;
         }
 
@@ -84,7 +85,7 @@
             line-height: 1.6;
         }
 
-        /* WhatsApp Button */
+        /* Original WhatsApp Button */
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -100,6 +101,66 @@
         .btn:hover {
             background-color: #128C7E;
             transform: translateY(-2px);
+        }
+
+        /* HIDE & SHOW ANIMATION NOTE BOX SECTION */
+        .animated-notes-section {
+            padding: 20px 8% 40px 8%;
+            display: flex;
+            justify-content: center;
+            background-color: #0b0e14;
+        }
+
+        .notes-display-box {
+            background-color: #151a24;
+            border: 2px solid #1f2633;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 700px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        .note-slide {
+            position: absolute;
+            width: 100%;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .note-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .note-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #00cfc8;
+        }
+
+        .note-info h3 {
+            color: #00cfc8;
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .note-info p {
+            color: #b7bdc6;
+            font-size: 15px;
+            line-height: 1.4;
         }
 
         /* Section Titles */
@@ -373,6 +434,36 @@
             margin-bottom: 30px;
         }
 
+        /* Contact Details Grid Box */
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .contact-box {
+            background-color: #151a24;
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            border: 1px solid #1f2633;
+        }
+
+        .contact-box h4 {
+            color: #00cfc8;
+            margin-bottom: 10px;
+        }
+
+        .contact-box p {
+            color: #b7bdc6;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
         .sales-btn {
             display: inline-block;
             background-color: #25a244;
@@ -387,6 +478,32 @@
 
         .sales-btn:hover {
             background-color: #1e8236;
+        }
+
+        /* FLOATING WHATSAPP ICON ON RIGHT BOTTOM */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
         }
 
         /* Footer */
@@ -419,6 +536,32 @@
         <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20am%20interested%20in%20your%20Price%20Makers%20Indicator" target="_blank" class="btn">💬 Connect on WhatsApp</a>
     </section>
 
+    <section class="animated-notes-section">
+        <div class="notes-display-box">
+            <div class="note-slide active">
+                <img src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=150" class="note-image" alt="No Emotion">
+                <div class="note-info">
+                    <h3>No More Emotion</h3>
+                    <p>Execute your trading plan flawlessly without the interference of human fear, greed, or psychological biases.</p>
+                </div>
+            </div>
+            <div class="note-slide">
+                <img src="https://images.unsplash.com/photo-1534972195531-d756b9bda9f2?w=150" class="note-image" alt="Risk Management">
+                <div class="note-info">
+                    <h3>Proper Risk Management Setup</h3>
+                    <p>Pre-defined smart stoplosses, precise position sizing rules, and automated algorithmic safe exits safeguard your capital.</p>
+                </div>
+            </div>
+            <div class="note-slide">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=150" class="note-image" alt="Over Trading">
+                <div class="note-info">
+                    <h3>End Card for Over Trading</h3>
+                    <p>Automated circuit breakers that lock and pause your strategy instantly once daily trading limits or targets are reached.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <h2 class="section-title" id="services">Our Services</h2>
     <section class="features">
         <div class="card">
@@ -430,8 +573,8 @@
             <p>Emotionless trading setups designed to execute your options strategies automatically via computer-based algorithms.</p>
         </div>
         <div class="card">
-            <h3>Price Action Strategies</h3>
-            <p>Profitable trading strategies purely based on Smart Stoploss (SL), Support & Resistance, and rigid Risk Management rules.</p>
+            <h3>SMC and ICT</h3>
+            <p>Profitable trading strategies purely based on SMC (Smart Money Concepts) and ICT trading method, Smart Stoploss (SL), and rigid Risk Management rules.</p>
         </div>
     </section>
 
@@ -484,14 +627,38 @@
     <section class="qa-contact" id="contact">
         <h2>Still have Questions?</h2>
         <p>If you have any doubts regarding our plans or custom strategy configurations, let's talk.</p>
+        
+        <div class="contact-grid">
+            <div class="contact-box">
+                <h4>Profile</h4>
+                <p>Name: Prasanth</p>
+                <p>Business: Price Makers Trading</p>
+            </div>
+            <div class="contact-box">
+                <h4>Contact Details</h4>
+                <p>Mobile: +91 9123565212</p>
+                <p>Email: workingsp10@gmail.com</p>
+            </div>
+            <div class="contact-box">
+                <h4>Location & Hours</h4>
+                <p>Places: Erode & Komarapalayam</p>
+                <p>Timing: 9 AM to 6 PM</p>
+            </div>
+        </div>
+
         <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20have%20some%20questions%20about%20your%20trading%20services" class="sales-btn" target="_blank">Contact Sales ↗</a>
     </section>
+
+    <a href="https://wa.me/919123565212?text=Hi%20Prasanth" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <footer>
         <p>&copy; 2026 Price Makers Trading. All Rights Reserved.</p>
     </footer>
 
     <script>
+        // Performance Slider
         let slideIndex = 1;
         showSlides(slideIndex);
         function plusSlides(n) { showSlides(slideIndex += n); }
@@ -503,6 +670,16 @@
             for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
             slides[slideIndex-1].style.display = "block";  
         }
+
+        // Automatic Hide and Show Note Slider Script
+        let noteIndex = 0;
+        const noteSlides = document.querySelectorAll(".note-slide");
+        function rotateNotes() {
+            noteSlides[noteIndex].classList.remove("active");
+            noteIndex = (noteIndex + 1) % noteSlides.length;
+            noteSlides[noteIndex].classList.add("active");
+        }
+        setInterval(rotateNotes, 4000); // Transitions every 4 seconds
     </script>
 
 </body>
