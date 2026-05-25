@@ -146,7 +146,7 @@
             line-height: 1.5;
         }
 
-        /* Chart Screenshot Section */
+        /* Chart Slider & Video Section */
         .gallery-section {
             background-color: #151a24;
             padding: 60px 8%;
@@ -156,7 +156,7 @@
         .gallery-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             margin-top: 30px;
             flex-wrap: wrap;
         }
@@ -166,19 +166,74 @@
             padding: 15px;
             border-radius: 8px;
             border: 1px solid #2b3547;
+            width: 100%;
             max-width: 500px;
+            position: relative;
         }
 
-        .gallery-box img {
+        /* Image Slider Wrapper */
+        .slider-wrapper {
+            position: relative;
             width: 100%;
+            overflow: hidden;
             border-radius: 5px;
             border: 1px solid #0b0e14;
         }
 
+        .mySlides {
+            display: none;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Slider Navigation Buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.4s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .prev { left: 10px; border-radius: 3px; }
+        .next { right: 10px; border-radius: 3px; }
+        .prev:hover, .next:hover { background-color: #00cfc8; color: #0b0e14; }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 5px;
+            border: 1px solid #0b0e14;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         .gallery-box p {
-            margin-top: 10px;
+            margin-top: 12px;
             color: #b7bdc6;
             font-size: 14px;
+            line-height: 1.4;
         }
 
         /* Contact Section */
@@ -272,10 +327,35 @@
     <section class="gallery-section" id="performance">
         <h2>Indicator Performance</h2>
         <div class="gallery-container">
+            
             <div class="gallery-box">
-                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=500&q=80" alt="Trading Chart">
-                <p>How our precise BUY / SELL and Smart Spike SL signals work in real-time charts.</p>
+                <div class="slider-wrapper">
+                    <div class="mySlides">
+                        <img src="https://i.ibb.co/3YgYm8m/c2.png" alt="Chart 1">
+                    </div>
+                    <div class="mySlides">
+                        <img src="https://i.ibb.co/bX0v0vM/c1.png" alt="Chart 2">
+                    </div>
+                    <div class="mySlides">
+                        <img src="https://i.ibb.co/vXyZ6Xz/4.png" alt="Chart 3">
+                    </div>
+                    <div class="mySlides">
+                        <img src="https://i.ibb.co/r2R8X7z/3.png" alt="Chart 4">
+                    </div>
+                    
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <p><strong>Indicator Screenshots:</strong> Use the left/right arrows to view all performance charts showcasing accurate entries and smart trailing levels.</p>
             </div>
+
+            <div class="gallery-box">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p><strong>Live Execution Video:</strong> Watch the live demonstration of our custom indicator alerting targets and trailing stoplosses.</p>
+            </div>
+
         </div>
     </section>
 
@@ -303,6 +383,26 @@
     <footer>
         <p>&copy; 2026 Price Makers Trading. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+    </script>
 
 </body>
 </html>
