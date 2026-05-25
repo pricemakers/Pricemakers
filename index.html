@@ -102,14 +102,15 @@
             transform: translateY(-2px);
         }
 
-        /* Features Section */
+        /* Sections Styling */
         .section-title {
             text-align: center;
-            padding-top: 40px;
+            padding-top: 60px;
             font-size: 28px;
             color: #ffffff;
         }
 
+        /* Features Section */
         .features {
             display: flex;
             justify-content: center;
@@ -180,11 +181,47 @@
             font-size: 14px;
         }
 
+        /* Contact Section (பிரசாந்த் விவரங்கள் சேர்க்கப்பட்ட பகுதி 📞) */
+        .contact-section {
+            padding: 60px 8%;
+            background-color: #0b0e14;
+            text-align: center;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background-color: #151a24;
+            padding: 25px;
+            border-radius: 8px;
+            width: 280px;
+            border: 1px solid #1f2633;
+            text-align: left;
+        }
+
+        .contact-card h4 {
+            color: #00cfc8;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .contact-card p {
+            color: #b7bdc6;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
         /* Footer */
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #0b0e14;
+            background-color: #151a24;
             color: #5e6673;
             font-size: 14px;
             border-top: 1px solid #1f2633;
@@ -199,17 +236,17 @@
             <li><a href="#">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#performance">Performance</a></li>
-            <li> footer <a href="#contact">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section class="hero">
         <h1>Smart Trading Solutions</h1>
         <p>அல்கோ ட்ரேடிங் மற்றும் துல்லியமான FVG இன்டிகேட்டர்கள் மூலம் பங்குச்சந்தையில் லாபகரமாக செயல்பட உங்களை நாங்கள் வழிநடத்துகிறோம்.</p>
-        <a href="https://wa.me/919000000000?text=Hi%20Price%20Makers,%20I%20am%20interested%20in%20your%20Indicator" target="_blank" class="btn">💬 WhatsApp-ல் தொடர்பு கொள்ள</a>
+        <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20am%20interested%20in%20your%20Price%20Makers%20Indicator" target="_blank" class="btn">💬 WhatsApp-ல் தொடர்பு கொள்ள</a>
     </section>
 
-    <h2 class="section-title" id="services">எங்களின் சேவைகள்</h2>
+    <h2 class="section-title" id="services">&#2951;&#2919;&#3021;&#2965;&#2995;&#3007;&#2985;&#3021; &#2970;&#3015;&#2997;&#3016;&#2965;&#2995;&#3021;</h2>
     <section class="features">
         <div class="card">
             <h3>Pine Script Indicators</h3>
@@ -226,7 +263,7 @@
     </section>
 
     <section class="gallery-section" id="performance">
-        <h2>இண்டிகேட்டர் பெர்ஃபார்மன்ஸ் (Performance)</h2>
+        <h2>&#2951;&#2984;&#3021;&#2975;&#3007;&#2965;&#3015;&#2975;&#3021;&#2975;&#2992;&#3021; &#2986;&#3014;&#2992;&#3021;&#2947;&#2986;&#3006;&#2992;&#3021;&#2990;&#2985;&#3021;&#2995;&#3021; (Performance)</h2>
         <div class="gallery-container">
             <div class="gallery-box">
                 <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=500&q=80" alt="Trading Chart">
@@ -235,7 +272,28 @@
         </div>
     </section>
 
-    <footer id="contact">
+    <section class="contact-section" id="contact">
+        <h2>&#2980;&#3019;&#2975;&#2992;&#3021;&#2986;&#3009; &#2965;&#3019;&#2995;&#3021;&#2995; (Contact Us)</h2>
+        <div class="contact-container">
+            <div class="contact-card">
+                <h4>Profile</h4>
+                <p><strong>Name:</strong> Prasanth</p>
+                <p><strong>Business:</strong> Price Makers Trading</p>
+            </div>
+            <div class="contact-card">
+                <h4>Contact Details</h4>
+                <p><strong>Mobile:</strong> +91 9123565212</p>
+                <p><strong>Email:</strong> workingsp10@gmail.com</p>
+            </div>
+            <div class="contact-card">
+                <h4>Location & Hours</h4>
+                <p><strong>Places:</strong> Erode & Komarapalayam</p>
+                <p><strong>Timing:</strong> 9 AM to 6 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <p>&copy; 2026 Price Makers Trading. All Rights Reserved.</p>
     </footer>
 
