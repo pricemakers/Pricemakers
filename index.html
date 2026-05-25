@@ -121,7 +121,6 @@
             overflow: hidden;
         }
 
-        /* Individual slide holds text and icon together */
         .quantman-slide {
             position: absolute;
             width: 100%;
@@ -130,8 +129,6 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-            
-            /* Initial State: Hidden and shifted down slightly */
             opacity: 0;
             transform: translateY(20px);
             visibility: hidden;
@@ -140,21 +137,18 @@
                         visibility 0.6s;
         }
 
-        /* Active State: Fades in and slides up smoothly */
         .quantman-slide.active {
             opacity: 1;
             transform: translateY(0);
             visibility: visible;
         }
 
-        /* Exiting State: Fades out and moves up smoothly */
         .quantman-slide.exit {
             opacity: 0;
             transform: translateY(-20px);
             visibility: hidden;
         }
 
-        /* Text Configuration matching Quantman presentation */
         .quantman-slide h2 {
             font-size: 42px;
             font-weight: 700;
@@ -167,7 +161,6 @@
             color: #00cfc8;
         }
 
-        /* Dynamic Circular Icon Wrapper styling */
         .quantman-icon-wrapper {
             width: 75px;
             height: 75px;
@@ -403,13 +396,20 @@
             font-size: 36px;
             font-weight: bold;
             color: #00cfc8;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
         .price-amount span {
             font-size: 16px;
             color: #b7bdc6;
             font-weight: normal;
+        }
+
+        .price-subtitle {
+            font-size: 13px;
+            color: #ffcc00;
+            margin-bottom: 15px;
+            font-weight: 500;
         }
 
         .price-desc {
@@ -453,7 +453,24 @@
         .qa-contact p {
             color: #b7bdc6;
             font-size: 16px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+        }
+
+        .sales-btn {
+            display: inline-block;
+            background-color: #25a244;
+            color: #ffffff;
+            padding: 14px 50px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            font-size: 16px;
+            transition: 0.3s;
+            margin-bottom: 45px;
+        }
+
+        .sales-btn:hover {
+            background-color: #1e8236;
         }
 
         /* Contact Details Grid Box */
@@ -462,8 +479,6 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-top: 30px;
-            margin-bottom: 30px;
             text-align: left;
         }
 
@@ -471,7 +486,7 @@
             background-color: #151a24;
             padding: 20px;
             border-radius: 8px;
-            width: 250px;
+            width: 260px;
             border: 1px solid #1f2633;
         }
 
@@ -484,22 +499,6 @@
             color: #b7bdc6;
             font-size: 14px;
             margin-bottom: 4px;
-        }
-
-        .sales-btn {
-            display: inline-block;
-            background-color: #25a244;
-            color: #ffffff;
-            padding: 14px 40px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        .sales-btn:hover {
-            background-color: #1e8236;
         }
 
         /* FLOATING WHATSAPP ICON ON RIGHT BOTTOM */
@@ -628,17 +627,19 @@
         <div class="pricing-container">
             <div class="price-card">
                 <h4>Basic Plan</h4>
-                <div class="price-amount">₹3,500<span>/Monthly</span></div>
+                <div class="price-amount">₹1,000<span>/1st Month Offer</span></div>
+                <div class="price-subtitle">Next month onwards ₹3,500/Monthly</div>
                 <p class="price-desc">Access to all essential tools, core indicator scripts, regular target alerts, and baseline support on a monthly subscription cycle.</p>
-                <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20want%20to%20order%20the%20Basic%20Monthly%20Plan" class="order-btn" target="_blank">Order Now →</a>
+                <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20want%20to%20order%20the%20Basic%20Plan%20with%201st%20Month%20Offer" class="order-btn" target="_blank">Order Now →</a>
             </div>
 
             <div class="price-card featured">
-                <div class="badge">Save 30%</div>
+                <div class="badge">Best Value</div>
                 <h4>Pro Plan</h4>
-                <div class="price-amount">₹29,400<span>/Yearly</span></div>
+                <div class="price-amount">₹28,400<span>/Yearly</span></div>
+                <div class="price-subtitle">Includes 1st Month Offer (-₹1,000) + Yearly Discount!</div>
                 <p class="price-desc">Get long-term commitment features including intermediate automated algo setups, premium technical strategy files, and direct priority setup help.</p>
-                <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20want%20to%20order%20the%20Pro%20Yearly%20Plan" class="order-btn" target="_blank">Order Now →</a>
+                <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20want%20to%20order%20the%20Pro%20Yearly%20Plan%20with%20Discount" class="order-btn" target="_blank">Order Now →</a>
             </div>
         </div>
     </section>
@@ -647,11 +648,13 @@
         <h2>Still have Questions?</h2>
         <p>If you have any doubts regarding our plans or custom strategy configurations, let's talk.</p>
         
+        <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20have%20some%20questions%20about%20your%20trading%20services" class="sales-btn" target="_blank">Contact Sales ↗</a>
+        
         <div class="contact-grid">
             <div class="contact-box">
                 <h4>Profile</h4>
                 <p>Name: Prasanth</p>
-                <p>Business: Price Makers Trading</p>
+                <p>Business: Price Makers Trading Community</p>
             </div>
             <div class="contact-box">
                 <h4>Contact Details</h4>
@@ -664,8 +667,6 @@
                 <p>Timing: 9 AM to 6 PM</p>
             </div>
         </div>
-
-        <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20have%20some%20questions%20about%20your%20trading%20services" class="sales-btn" target="_blank">Contact Sales ↗</a>
     </section>
 
     <a href="https://wa.me/919123565212?text=Hi%20Prasanth" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
@@ -685,7 +686,7 @@
             let i;
             let slides = document.getElementsByClassName("mySlides");
             if (n > slides.length) {slideIndex = 1}    
-            if (n < 1) {slideIndex = slides.length}
+            if (n < 1) {slides.length}
             for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
             slides[slideIndex-1].style.display = "block";  
         }
@@ -697,23 +698,16 @@
 
         function playQuantmanTransition() {
             let activeSlide = quantmanSlides[currentQuantmanIdx];
-            
-            // 1. Current active element transitions to exit layout (slides up + fades out)
             activeSlide.classList.remove("active");
             activeSlide.classList.add("exit");
             
-            // 2. Compute next item index
             currentQuantmanIdx = (currentQuantmanIdx + 1) % totalQuantmanSlides;
             let nextSlide = quantmanSlides[currentQuantmanIdx];
             
-            // 3. Reset target upcoming element configuration state from previous memory cycles
             nextSlide.classList.remove("exit");
-            
-            // 4. Trigger clean visual arrival state
             nextSlide.classList.add("active");
         }
 
-        // Run the seamless system loop every 3.5 seconds
         setInterval(playQuantmanTransition, 3500);
     </script>
 
