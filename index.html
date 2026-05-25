@@ -6,536 +6,59 @@
     <title>Price Makers Trading</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* CSS Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #0b0e14;
-            color: #ffffff;
-        }
-
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background-color: #151a24;
-            border-bottom: 2px solid #1f2633;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #00cfc8;
-        }
-
-        .nav-links {
-            list-style: none;
-        }
-
-        .nav-links li {
-            display: inline-block;
-            margin-left: 20px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #b7bdc6;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #00cfc8;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            height: 45vh;
-            padding: 0 20px;
-            padding-top: 40px;
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #ffffff, #00cfc8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #b7bdc6;
-            max-width: 650px;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        /* Original WhatsApp Button */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #25D366;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn:hover {
-            background-color: #128C7E;
-            transform: translateY(-2px);
-        }
-
-        /* QUANTMAN STYLE SEAMLESS SLIDER SECTION */
-        .quantman-slider-section {
-            padding: 10px 8% 60px 8%;
-            display: flex;
-            justify-content: center;
-            background-color: #0b0e14;
-        }
-
-        .quantman-slider-container {
-            width: 100%;
-            max-width: 750px;
-            height: 140px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quantman-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            visibility: hidden;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-                        visibility 0.6s;
-        }
-
-        .quantman-slide.active {
-            opacity: 1;
-            transform: translateY(0);
-            visibility: visible;
-        }
-
-        .quantman-slide.exit {
-            opacity: 0;
-            transform: translateY(-20px);
-            visibility: hidden;
-        }
-
-        .quantman-slide h2 {
-            font-size: 42px;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.2;
-            text-align: right;
-        }
-
-        .quantman-slide h2 span {
-            color: #00cfc8;
-        }
-
-        .quantman-icon-wrapper {
-            width: 75px;
-            height: 75px;
-            background: rgba(0, 207, 200, 0.1);
-            border: 2px solid rgba(0, 207, 200, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .quantman-icon-wrapper i {
-            font-size: 32px;
-            color: #00cfc8;
-        }
-
-        /* Section Titles */
-        .section-title {
-            text-align: center;
-            padding-top: 60px;
-            font-size: 28px;
-            color: #ffffff;
-        }
-
-        /* Features Section */
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 40px 8% 60px 8%;
-            background-color: #0b0e14;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            background-color: #151a24;
-            padding: 30px;
-            border-radius: 8px;
-            width: 320px;
-            text-align: center;
-            border: 1px solid #1f2633;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            border-color: #00cfc8;
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            color: #00cfc8;
-        }
-
-        .card p {
-            color: #b7bdc6;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        /* Slider & Performance Section */
-        .gallery-section {
-            background-color: #151a24;
-            padding: 60px 8%;
-            text-align: center;
-        }
-
-        .gallery-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .gallery-box {
-            background-color: #1f2633;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #2b3547;
-            width: 100%;
-            max-width: 500px;
-            position: relative;
-        }
-
-        .slider-wrapper {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 5px;
-            border: 1px solid #0b0e14;
-        }
-
-        .mySlides {
-            display: none;
-        }
-
-        .mySlides img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: auto;
-            padding: 12px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.4s ease;
-            background-color: rgba(0, 0, 0, 0.6);
-            user-select: none;
-        }
-
-        .prev { left: 10px; border-radius: 3px; }
-        .next { right: 10px; border-radius: 3px; }
-        .prev:hover, .next:hover { background-color: #00cfc8; color: #0b0e14; }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 5px;
-            border: 1px solid #0b0e14;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .gallery-box p {
-            margin-top: 12px;
-            color: #b7bdc6;
-            font-size: 14px;
-        }
-
-        /* 3 Days Free Trial Bar Box */
-        .trial-bar {
-            background-color: #ffffff;
-            color: #0b0e14;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 50px auto;
-            width: 84%;
-            border-radius: 50px;
-        }
-
-        .trial-text {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .trial-btn {
-            background-color: #0052cc;
-            color: #ffffff;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: 0.3s;
-        }
-
-        .trial-btn:hover {
-            background-color: #003d99;
-        }
-
-        /* Pricing Section */
-        .pricing-section {
-            padding: 60px 8%;
-            text-align: center;
-            background-color: #0b0e14;
-        }
-
-        .pricing-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .price-card {
-            background-color: #151a24;
-            border-radius: 12px;
-            width: 320px;
-            border: 2px solid #1f2633;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            transition: 0.3s;
-            padding: 40px 20px;
-        }
-
-        .price-card.featured {
-            border-color: #0052cc;
-            position: relative;
-        }
-
-        .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: #ffcc00;
-            color: #0b0e14;
-            padding: 4px 10px;
-            font-size: 12px;
-            font-weight: bold;
-            border-radius: 4px;
-        }
-
-        .price-card h4 {
-            font-size: 24px;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .price-amount {
-            font-size: 36px;
-            font-weight: bold;
-            color: #00cfc8;
-            margin-bottom: 5px;
-        }
-
-        .price-amount span {
-            font-size: 16px;
-            color: #b7bdc6;
-            font-weight: normal;
-        }
-
-        .price-subtitle {
-            font-size: 13px;
-            color: #ffcc00;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
-        .price-desc {
-            color: #b7bdc6;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            flex-grow: 1;
-        }
-
-        .order-btn {
-            display: block;
-            text-align: center;
-            background-color: #0052cc;
-            color: #ffffff;
-            padding: 14px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        .order-btn:hover {
-            background-color: #003d99;
-        }
-
-        /* Q&A Contact Section */
-        .qa-contact {
-            background-color: #091e42;
-            padding: 60px 8%;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .qa-contact h2 {
-            font-size: 36px;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .qa-contact p {
-            color: #b7bdc6;
-            font-size: 16px;
-            margin-bottom: 25px;
-        }
-
-        .sales-btn {
-            display: inline-block;
-            background-color: #25a244;
-            color: #ffffff;
-            padding: 14px 50px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-            font-size: 16px;
-            transition: 0.3s;
-            margin-bottom: 45px;
-        }
-
-        .sales-btn:hover {
-            background-color: #1e8236;
-        }
-
-        /* Contact Details Grid Box */
-        .contact-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            text-align: left;
-        }
-
-        .contact-box {
-            background-color: #151a24;
-            padding: 20px;
-            border-radius: 8px;
-            width: 260px;
-            border: 1px solid #1f2633;
-        }
-
-        .contact-box h4 {
-            color: #00cfc8;
-            margin-bottom: 10px;
-        }
-
-        .contact-box p {
-            color: #b7bdc6;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        /* FLOATING WHATSAPP ICON ON RIGHT BOTTOM */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #0b0e14; color: #ffffff; }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background-color: #151a24; position: sticky; top: 0; z-index: 100; border-bottom: 2px solid #1f2633; }
+        .logo { font-size: 24px; font-weight: bold; color: #00cfc8; }
+        .nav-links a { text-decoration: none; color: #b7bdc6; margin-left: 20px; }
+        .nav-links a:hover { color: #00cfc8; }
+
+        /* Hero */
+        .hero { display: flex; flex-direction: column; align-items: center; text-align: center; height: 45vh; padding-top: 60px; }
+        .hero h1 { font-size: 56px; background: linear-gradient(to right, #ffffff, #00cfc8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* WhatsApp Button - Right Side Centered */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
             background-color: #25D366;
             color: white;
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
-            z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            transition: transform 0.3s ease;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            transition: 0.3s;
         }
+        .whatsapp-float:hover { transform: translateY(-50%) scale(1.1); background-color: #128C7E; }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128C7E;
-        }
+        /* Other Sections */
+        .quantman-slider-section { padding: 40px 8%; display: flex; justify-content: center; }
+        .features { display: flex; justify-content: center; gap: 20px; padding: 40px 8%; flex-wrap: wrap; }
+        .card { background: #151a24; padding: 30px; border-radius: 10px; width: 300px; border: 1px solid #1f2633; }
+        
+        .gallery-section { padding: 40px 8%; text-align: center; }
+        .gallery-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .gallery-box { width: 400px; }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #151a24;
-            color: #5e6673;
-            font-size: 14px;
-            border-top: 1px solid #1f2633;
-        }
+        .pricing-section { padding: 40px 8%; text-align: center; }
+        .pricing-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .price-card { background: #151a24; padding: 30px; border-radius: 15px; width: 320px; border: 1px solid #1f2633; }
+        .order-btn { display: block; margin-top: 15px; padding: 12px; background: #0052cc; color: white; text-decoration: none; border-radius: 5px; }
+
+        /* Contact Section */
+        .qa-contact { background: #091e42; padding: 60px 8%; text-align: center; }
+        .sales-btn { display: inline-block; background: #25a244; color: white; padding: 15px 50px; text-decoration: none; border-radius: 30px; margin-bottom: 40px; }
+        .contact-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .contact-box { background: #151a24; padding: 20px; border-radius: 8px; width: 260px; text-align: left; }
     </style>
 </head>
 <body>
@@ -545,7 +68,6 @@
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#performance">Performance</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -553,163 +75,34 @@
 
     <section class="hero">
         <h1>Smart Trading Solutions</h1>
-        <p>We guide you to trade profitably in the stock market with custom automated algo trading solutions and highly precise trading indicators.</p>
-        <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20am%20interested%20in%20your%20Price%20Makers%20Indicator" target="_blank" class="btn">💬 Connect on WhatsApp</a>
+        <p>Professional Algo Trading & Indicators.</p>
     </section>
-
-    <section class="quantman-slider-section">
-        <div class="quantman-slider-container">
-            <div class="quantman-slide active">
-                <h2>No More <span>Emotion</span></h2>
-                <div class="quantman-icon-wrapper">
-                    <i class="fa-solid fa-brain"></i>
-                </div>
-            </div>
-            <div class="quantman-slide">
-                <h2>Proper <span>Risk Management Setup</span></h2>
-                <div class="quantman-icon-wrapper">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-            </div>
-            <div class="quantman-slide">
-                <h2>End Card for <span>Over Trading</span></h2>
-                <div class="quantman-icon-wrapper">
-                    <i class="fa-solid fa-ban"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <h2 class="section-title" id="services">Our Services</h2>
-    <section class="features">
-        <div class="card">
-            <h3>Pine Script Indicators</h3>
-            <p>Custom-built TradingView indicators equipped with highly accurate Spike SL logic and automated target alert systems.</p>
-        </div>
-        <div class="card">
-            <h3>Algo Automation</h3>
-            <p>Emotionless trading setups designed to execute your options strategies automatically via computer-based algorithms.</p>
-        </div>
-        <div class="card">
-            <h3>SMC and ICT</h3>
-            <p>Profitable trading strategies purely based on SMC (Smart Money Concepts) and ICT trading method, Smart Stoploss (SL), and rigid Risk Management rules.</p>
-        </div>
-    </section>
-
-    <section class="gallery-section" id="performance">
-        <h2>Indicator Performance</h2>
-        <div class="gallery-container">
-            <div class="gallery-box">
-                <div class="slider-wrapper">
-                    <div class="mySlides"><img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500" alt="Chart 1"></div>
-                    <div class="mySlides"><img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=500" alt="Chart 2"></div>
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                </div>
-                <p><strong>Indicator Screenshots:</strong> View all performance charts showcasing accurate entries and smart trailing levels.</p>
-            </div>
-            <div class="gallery-box">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <p><strong>Live Execution Video:</strong> Watch the live demonstration of our custom indicator alerting targets and trailing stoplosses.</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="trial-bar">
-        <div class="trial-text">Choose your plan. Still not sure? We offer 3 days Free Trial.</div>
-        <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20want%20to%20start%20my%203%20days%20free%20trial" target="_blank" class="trial-btn">Start 3 Day Free Trial →</a>
-    </div>
 
     <section class="pricing-section" id="pricing">
-        <h2>Flexible Pricing Plans</h2>
         <div class="pricing-container">
             <div class="price-card">
                 <h4>Basic Plan</h4>
-                <div class="price-amount">₹1,000<span>/1st Month Offer</span></div>
-                <div class="price-subtitle">Next month onwards ₹3,500/Monthly</div>
-                <p class="price-desc">Access to all essential tools, core indicator scripts, regular target alerts, and baseline support on a monthly subscription cycle.</p>
-                <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20want%20to%20order%20the%20Basic%20Plan%20with%201st%20Month%20Offer" class="order-btn" target="_blank">Order Now →</a>
+                <div class="price-amount">₹1,000</div>
+                <a href="#" class="order-btn">Order Now</a>
             </div>
-
-            <div class="price-card featured">
-                <div class="badge">Best Value</div>
+            <div class="price-card">
                 <h4>Pro Plan</h4>
-                <div class="price-amount">₹28,400<span>/Yearly</span></div>
-                <div class="price-subtitle">Includes 1st Month Offer (-₹1,000) + Yearly Discount!</div>
-                <p class="price-desc">Get long-term commitment features including intermediate automated algo setups, premium technical strategy files, and direct priority setup help.</p>
-                <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20want%20to%20order%20the%20Pro%20Yearly%20Plan%20with%20Discount" class="order-btn" target="_blank">Order Now →</a>
+                <div class="price-amount">₹28,400</div>
+                <a href="#" class="order-btn">Order Now</a>
             </div>
         </div>
     </section>
 
     <section class="qa-contact" id="contact">
         <h2>Still have Questions?</h2>
-        <p>If you have any doubts regarding our plans or custom strategy configurations, let's talk.</p>
-        
-        <a href="https://wa.me/919123565212?text=Hi%20Prasanth,%20I%20have%20some%20questions%20about%20your%20trading%20services" class="sales-btn" target="_blank">Contact Sales ↗</a>
-        
+        <a href="https://wa.me/919123565212" class="sales-btn">Contact</a>
         <div class="contact-grid">
-            <div class="contact-box">
-                <h4>Profile</h4>
-                <p>Name: Prasanth</p>
-                <p>Business: Price Makers Trading Community</p>
-            </div>
-            <div class="contact-box">
-                <h4>Contact Details</h4>
-                <p>Mobile: +91 9123565212</p>
-                <p>Email: workingsp10@gmail.com</p>
-            </div>
-            <div class="contact-box">
-                <h4>Location & Hours</h4>
-                <p>Places: Erode & Komarapalayam</p>
-                <p>Timing: 9 AM to 6 PM</p>
-            </div>
+            <div class="contact-box"><h4>Profile</h4><p>Name: Prasanth</p><p>Business: Price Makers Trading Community</p></div>
+            <div class="contact-box"><h4>Contact</h4><p>+91 9123565212</p></div>
         </div>
     </section>
 
-    <a href="https://wa.me/919123565212?text=Hi%20Prasanth" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <footer>
-        <p>&copy; 2026 Price Makers Trading. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        // Performance Slider Controller
-        let slideIndex = 1;
-        showSlides(slideIndex);
-        function plusSlides(n) { showSlides(slideIndex += n); }
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            if (n > slides.length) {slideIndex = 1}    
-            if (n < 1) {slides.length}
-            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-            slides[slideIndex-1].style.display = "block";  
-        }
-
-        // Quantman Style Infinite Dynamic Text Sync Slider Controller 
-        let currentQuantmanIdx = 0;
-        const quantmanSlides = document.querySelectorAll(".quantman-slide");
-        const totalQuantmanSlides = quantmanSlides.length;
-
-        function playQuantmanTransition() {
-            let activeSlide = quantmanSlides[currentQuantmanIdx];
-            activeSlide.classList.remove("active");
-            activeSlide.classList.add("exit");
-            
-            currentQuantmanIdx = (currentQuantmanIdx + 1) % totalQuantmanSlides;
-            let nextSlide = quantmanSlides[currentQuantmanIdx];
-            
-            nextSlide.classList.remove("exit");
-            nextSlide.classList.add("active");
-        }
-
-        setInterval(playQuantmanTransition, 3500);
-    </script>
+    <a href="https://wa.me/919123565212" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
 </body>
 </html>
